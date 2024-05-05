@@ -1,0 +1,86 @@
+/* body{
+    background-color: rgb(217, 209, 242);
+} */
+body {
+  background-color: #0f172a !important;
+  font-family: "Plus Jakarta Sans", sans-serif !important;
+}
+/* navbar */
+.navbar {
+  height: 5rem;
+  background-color: #0f172a;
+  color: white;
+}
+
+.nav-link {
+  color: #f9f5f5 !important;
+}
+
+/* footer*/
+.f-info-links a {
+  color: white !important;
+  text-decoration: none;
+}
+.f-info-links a:hover {
+  color: white;
+  text-decoration: underline;
+}
+
+.f-info-links,
+.f-info-socials {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+}
+.f-info-socials i {
+  margin-right: 1rem;
+  font-size: 1.2rem;
+}
+
+.f-info {
+  display: flex;
+  text-align: center;
+  height: 8rem;
+  background-color: #0f172a;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: space-evenly;
+  /* position: absolute;
+  bottom: 0;
+  width: 100%; */
+}
+.wow {
+  color: white;
+}
+
+/* for card styling */
+.card {
+  margin-bottom: 2rem;
+  background-color: #0f172a !important;
+  color: white !important;
+}
+
+.card-img-top {
+  border-radius: 1rem;
+  width: 100% !important;
+  object-fit: cover !important;
+}
+
+.card-body {
+  padding: 0 !important;
+}
+
+.card-text p {
+  font-weight: 400;
+}
+.imagelink {
+  text-decoration: none;
+}
+.card :hover {
+  opacity: 0.1;
+  background-color: white;
+  transform: scale(1.025, 1.025);
+  box-shadow: 0 0 1rem white;
+}

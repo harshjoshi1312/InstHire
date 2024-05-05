@@ -4,6 +4,7 @@ const mongoose = require("mongoose");
 const First = require("./models/first.js");
 const path = require("path");
 const methodOverride = require("method-Override");
+const ejsMate = require("ejs-mate");
 // temporaty add samll db
 const MONGO_URL = "mongodb://127.0.0.1:27017/insthire";
 
@@ -24,6 +25,8 @@ app.set("view engine", "ejs");
 app.set("views", path.join(__dirname, "views"));
 app.use(express.urlencoded({ extended: true }));
 app.use(methodOverride("_method"));
+app.engine("ejs", ejsMate);
+app.use(express.static(path.join(__dirname, "/public")));
 // ROUTES
 // the main root
 app.get("/", (req, res) => {
