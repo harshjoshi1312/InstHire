@@ -2,6 +2,8 @@ const mongoose = require("mongoose");
 const initData = require("./data");
 const First = require("../models/first.model.js");
 
+
+
 const MONGO_URL = "mongodb://127.0.0.1:27017/insthire";
 
 main()

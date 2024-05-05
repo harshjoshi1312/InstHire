@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>insthire</title>
+  </head>
+  <body>
+    <h1>Update your  developer Profile</h1>
+    <form method="post" action="/first/<%= listing._id %>?_method=PUT">
+      <input name="new[name]" value="<%= listing.name %>" type="text" />
+      <br /><br />
+      <input name="new[role]" value="<%= listing.role %>" type="text" />
+      <br /><br />
+      <input name="new[description]" value="<%= listing.description %>" type="text" />
+      <br /><br />
+      <input name="new[image]" value="<%= listing.image %>" type="text" />
+      <br /><br />
+      <input name="new[location]" value="<%= listing.location %>" type="text" />
+      <br /><br />
+      <input name="new[country]" value="<%= listing.country %>" type="text" />
+      <br /><br />
+      <button>Edit your profile</button>
+  </body>
+</html>

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>insthire</title>
+  </head>
+  <body>
+    <h3>Developers Profile</h3>
+    <h1>developer details</h1>
+    <ul>
+      <li><%= listing.name%></li>
+      <li><%= listing.role%></li>
+      <li><%= listing.description%></li>
+      <li><%= listing.location%></li>
+      <li><%= listing.country%></li>
+    </ul>
+    <br />
+    <a href="/first/<%= listing._id%>/edit "> Edit this listing</a>
+    <br /><br /><br /><br />
+    <form method="post" action="/first/<%= listing._id%>?_method=delete">
+      <button>delete Your profile</button>
+    </form>
+  </body>
+</html>
