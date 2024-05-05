@@ -4,6 +4,7 @@
 body {
   background-color: #0f172a !important;
   font-family: "Plus Jakarta Sans", sans-serif !important;
+  color: white !important;
 }
 /* navbar */
 .navbar {
