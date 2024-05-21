@@ -1,0 +1,19 @@
+<% layout("/layouts/boilerplate.ejs") %>
+  <body>
+    <h1>Update your Job Profile</h1>
+    <form method="post" action="/two/<%= listing._id %>?_method=PUT">
+      <input name="new[name]" value="<%= listing.name %>" type="text" />
+      <br /><br />
+      <input name="new[role]" value="<%= listing.role %>" type="text" />
+      <br /><br />
+      <input name="new[description]" value="<%= listing.description %>" type="text" />
+      <br /><br />
+      <input name="new[image]" value="<%= listing.image %>" type="text" />
+      <br /><br />
+      <input name="new[location]" value="<%= listing.location %>" type="text" />
+      <br /><br />
+      <input name="new[stipend]" value="<%= listing.stipend %>" type="text" />
+      <br /><br />
+      <button>Edit your Job profile</button>
+  </body>
+
