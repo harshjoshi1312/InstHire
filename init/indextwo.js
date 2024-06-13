@@ -9,7 +9,7 @@ main()
     console.log("connected to db");
   })
   .catch((err) => {
-    console.log("err");
+    console.log("err");   
   });
 
 async function main() {

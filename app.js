@@ -6,6 +6,9 @@ const Two = require("./models/two.js");
 const path = require("path");
 const methodOverride = require("method-Override");
 const ejsMate = require("ejs-mate");
+
+
+
 // temporaty add samll db
 const MONGO_URL = "mongodb://127.0.0.1:27017/insthire";
 
@@ -153,3 +156,5 @@ app.delete("/two/:id", async (req, res) => {
 app.listen(8080, () => {
   console.log("working properly port 8080");
 });
+
+//port is listing to 8080;
