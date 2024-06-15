@@ -204,7 +204,12 @@ body {
   border-color: #666666;
   outline: none;
 }
-/* mew page styling */
+/* new page styling */
 .add-btn{
+  background-color: #fe424d !important; 
+}
+
+/* edit page styling */
+.edit-btn{
   background-color: #fe424d !important; 
 }

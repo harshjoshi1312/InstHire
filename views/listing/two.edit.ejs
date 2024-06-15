@@ -1,4 +1,4 @@
-<% layout("/layouts/boilerplate.ejs") %>
+<!-- <% layout("/layouts/boilerplate.ejs") %>
   <body>
     <h1>Update your Job Profile</h1>
     <form method="post" action="/two/<%= listing._id %>?_method=PUT">
@@ -16,4 +16,74 @@
       <br /><br />
       <button>Edit your Job profile</button>
   </body>
+ -->
+<% layout("/layouts/boilerplate.ejs") %>
+<div class="row">
+  <div class="col-8 offset-2">
+    <h1>Update your job Profile</h1>
+    <form method="post" action="/two/<%= listing._id %>?_method=PUT">
+      <div class="mb-3">
+        <label for="name" class="form-label">Job Name</label>
+        <input
+          name="new[name]"
+          value="<%= listing.name %>"
+          type="text"
+          class="form-control"
+        />
+      </div>
 
+      <div class="mb-3">
+        <label for="role" class="form-label"> Role</label>
+        <input
+          name="new[role]"
+          value="<%= listing.role %>"
+          type="text"
+          class="form-control"
+        />
+      </div>
+
+      <div class="mb-3">
+        <label for="description" class="form-label"> Description</label>
+        <input
+          name="new[description]"
+          value="<%= listing.description %>"
+          type="text"
+          class="form-control"
+        />
+      </div>
+
+      <div class="mb-3">
+        <label for="image" class="form-label"> Image Link</label>
+        <input
+          name="new[image]"
+          value="<%= listing.image %>"
+          type="text"
+          class="form-control"
+        />
+      </div>
+
+      <div class="mb-3">
+        <label for="location" class="form-label"> Location</label>
+        <input
+          name="new[location]"
+          value="<%= listing.location %>"
+          type="text"
+          class="form-control"
+        />
+      </div>
+
+      <div class="mb-3">
+        <label for="stipend" class="form-label"> Stipend</label>
+        <input
+          name="new[stipend]"
+          value="<%= listing.stipend %>"
+          type="text"
+          class="form-control"
+        />
+      </div>
+
+      <br /><br />
+      <button class="btn btn-dark edit-btn">Edit your profile</button>
+    </form>
+  </div>
+</div>

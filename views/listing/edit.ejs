@@ -1,19 +1,70 @@
 <% layout("/layouts/boilerplate.ejs") %>
-  <body>
-    <h1>Update your  developer Profile</h1>
+<div class="row">
+  <div class="col-8 offset-2">
+    <h1>Update your developer Profile</h1>
     <form method="post" action="/first/<%= listing._id %>?_method=PUT">
-      <input name="new[name]" value="<%= listing.name %>" type="text" />
-      <br /><br />
-      <input name="new[role]" value="<%= listing.role %>" type="text" />
-      <br /><br />
-      <input name="new[description]" value="<%= listing.description %>" type="text" />
-      <br /><br />
-      <input name="new[image]" value="<%= listing.image %>" type="text" />
-      <br /><br />
-      <input name="new[location]" value="<%= listing.location %>" type="text" />
-      <br /><br />
-      <input name="new[country]" value="<%= listing.country %>" type="text" />
-      <br /><br />
-      <button>Edit your profile</button>
-  </body>
+      <div class="mb-3">
+        <label for="name" class="form-label"> Name</label>
+        <input
+          name="new[name]"
+          value="<%= listing.name %>"
+          type="text"
+          class="form-control"
+        />
+      </div>
 
+      <div class="mb-3">
+        <label for="role" class="form-label"> Role</label>
+        <input
+          name="new[role]"
+          value="<%= listing.role %>"
+          type="text"
+          class="form-control"
+        />
+      </div>
+
+      <div class="mb-3">
+        <label for="description" class="form-label"> Description</label>
+        <input
+          name="new[description]"
+          value="<%= listing.description %>"
+          type="text"
+          class="form-control"
+        />
+      </div>
+
+      <div class="mb-3">
+        <label for="image" class="form-label"> Image Link</label>
+        <input
+          name="new[image]"
+          value="<%= listing.image %>"
+          type="text"
+          class="form-control"
+        />
+      </div>
+
+      <div class="mb-3">
+        <label for="location" class="form-label"> Location</label>
+        <input
+          name="new[location]"
+          value="<%= listing.location %>"
+          type="text"
+          class="form-control"
+        />
+      </div>
+
+      <div class="mb-3">
+        <label for="country" class="form-label"> Country</label>
+        <input
+          name="new[country]"
+          value="<%= listing.country %>"
+          type="text"
+          class="form-control"
+        />
+      </div>
+
+      <br /><br />
+      <button class="btn btn-dark edit-btn">Edit your profile</button>
+    </form>
+  </div>
+</div>
