@@ -21,7 +21,12 @@
 <div class="row">
   <div class="col-8 offset-2">
     <h1>Update your job Profile</h1>
-    <form method="post" action="/two/<%= listing._id %>?_method=PUT">
+    <form
+      method="post"
+      action="/two/<%= listing._id %>?_method=PUT"
+      novalidate
+      class="needs-validation"
+    >
       <div class="mb-3">
         <label for="name" class="form-label">Job Name</label>
         <input
@@ -29,7 +34,9 @@
           value="<%= listing.name %>"
           type="text"
           class="form-control"
+          required
         />
+        <div class="invalid-feedback">Please Enter name</div>
       </div>
 
       <div class="mb-3">
@@ -39,7 +46,9 @@
           value="<%= listing.role %>"
           type="text"
           class="form-control"
+          required
         />
+        <div class="invalid-feedback">Please Enter Role</div>
       </div>
 
       <div class="mb-3">
@@ -49,7 +58,9 @@
           value="<%= listing.description %>"
           type="text"
           class="form-control"
+          required
         />
+        <div class="invalid-feedback">Please Enter Description</div>
       </div>
 
       <div class="mb-3">
@@ -59,7 +70,9 @@
           value="<%= listing.image %>"
           type="text"
           class="form-control"
+          required
         />
+        <div class="invalid-feedback">Please Enter Image</div>
       </div>
 
       <div class="mb-3">
@@ -69,7 +82,9 @@
           value="<%= listing.location %>"
           type="text"
           class="form-control"
+          required
         />
+        <div class="invalid-feedback">Please Enter Location</div>
       </div>
 
       <div class="mb-3">
@@ -79,7 +94,9 @@
           value="<%= listing.stipend %>"
           type="text"
           class="form-control"
+          required
         />
+        <div class="invalid-feedback">Please Enter Stipend</div>
       </div>
 
       <br /><br />

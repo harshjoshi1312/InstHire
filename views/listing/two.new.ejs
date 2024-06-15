@@ -2,11 +2,12 @@
 <div class="row">
   <div class="col-8 offset-2">
     <h1>List New Openings</h1>
-    <form method="post" action="/two">
+    <form method="post" action="/two" novalidate class="needs-validation">
       <div class="mb-3">
         <label for="name" class="form-label"> Enter title</label>
         <input name="listing[name]" placeholder="name" name" type="text"
-        class="form-control" />
+        class="form-control" required />
+        <div class="invalid-feedback">Please Enter name</div>
       </div>
       <div class="mb-3">
         <label for="role" class="form-label"> Enter your Role</label>
@@ -15,7 +16,9 @@
           placeholder="need expertice"
           type="text"
           class="form-control"
+          required
         />
+        <div class="invalid-feedback">Please Enter your Role</div>
       </div>
       <div class="mb-3">
         <label for="description" class="form-label"> write your info</label>
@@ -24,7 +27,9 @@
           placeholder="job-description"
           type="text"
           class="form-control"
+          required
         />
+        <div class="invalid-feedback">Please Enter job description</div>
       </div>
 
       <div class="mb-3">
@@ -35,6 +40,7 @@
           type="text"
           class="form-control"
         />
+        <div class="invalid-feedback">Please Enter ImageLink</div>
       </div>
 
       <div class="mb-3">
@@ -46,7 +52,9 @@
           placeholder="remote/Onsite"
           type="text"
           class="form-control"
+          required
         />
+        <div class="invalid-feedback">Please Enter Valid Location</div>
       </div>
 
       <div class="mb-3">
@@ -56,7 +64,9 @@
           placeholder="stipend INR"
           type="text"
           class="form-control"
+          required
         />
+        <div class="invalid-feedback">Please Enter Stipend / salary</div>
       </div>
 
       <button class="btn btn-dark add-btn">Add new openings</button>
