@@ -8,6 +8,7 @@ const methodOverride = require("method-Override");
 const ejsMate = require("ejs-mate");
 const wrapAsync = require("./utils/wrapAync.js");
 const ExpressError = require("./utils/ExpressError.js");
+const { listingSchema } = require("./schema.js");
 
 // temporaty add samll db
 const MONGO_URL = "mongodb://127.0.0.1:27017/insthire";
@@ -39,31 +40,48 @@ app.get("/", (req, res) => {
   res.send(" i am hrzx root");
 });
 
+//validation schema
+const validatelisting = (req,res,next) =>{
+   let {error} = listingSchema.validate(req.body);
+   if(error){
+    throw new ExpressError(400,error);
+   }else{
+    next();
+   }
+}
+
 // first indexroute
-app.get("/first",wrapAsync (async (req, res) => {
-  const allListings = await First.find({});
-  res.render("listing/index.ejs", { allListings });
-}));
+app.get(
+  "/first",
+  wrapAsync(async (req, res) => {
+    const allListings = await First.find({});
+    res.render("listing/index.ejs", { allListings });
+  })
+);
 
 // New Route
-app.get("/first/new",wrapAsync (async (req, res) => {
-  res.render("listing/new.ejs");
-}));
+app.get(
+  "/first/new",
+  wrapAsync(async (req, res) => {
+    res.render("listing/new.ejs");
+  })
+);
 
 //Show route
-app.get("/first/:id", wrapAsync (async (req, res) => {
-  let { id } = req.params;
-  const listing = await First.findById(id);
-  res.render("listing/show.ejs", { listing });
-}));
+app.get(
+  "/first/:id",
+  wrapAsync(async (req, res) => {
+    let { id } = req.params;
+    const listing = await First.findById(id);
+    res.render("listing/show.ejs", { listing });
+  })
+);
 
 //crate Route
 app.post(
   "/first",
+  // validatelisting,
   wrapAsync(async (req, res, next) => {
-    if(!req.body.listing){
-      throw new ExpressError(400,"send valid data for lsiting")
-    }
     const newListing = new First(req.body.listing);
     await newListing.save();
     res.redirect("/first");
@@ -72,76 +90,106 @@ app.post(
 
 // Edit Route
 
-app.get("/first/:id/edit",wrapAsync (async (req, res) => {
-  let { id } = req.params;
-  const listing = await First.findById(id);
-  res.render("listing/edit.ejs", { listing });
-}));
+app.get(
+  "/first/:id/edit",
+  wrapAsync(async (req, res) => {
+    let { id } = req.params;
+    const listing = await First.findById(id);
+    res.render("listing/edit.ejs", { listing });
+  })
+);
 
 // Update route
-app.put("/first/:id", wrapAsync(async (req, res) => {
-  let { id } = req.params;
-  await First.findByIdAndUpdate(id, { ...req.body.new });
-  res.redirect(`/first/${id}`);
-}));
+app.put(
+  "/first/:id",
+  wrapAsync(async (req, res) => {
+    let { id } = req.params;
+    await First.findByIdAndUpdate(id, { ...req.body.new });
+    res.redirect(`/first/${id}`);
+  })
+);
 
 // Delete ROUTE
-app.delete("/first/:id",wrapAsync (async (req, res) => {
-  let { id } = req.params;
-  let deletedlisting = await First.findByIdAndDelete(id);
-  console.log(deletedlisting);
-  res.redirect("/first");
-}));
+app.delete(
+  "/first/:id",
+  wrapAsync(async (req, res) => {
+    let { id } = req.params;
+    let deletedlisting = await First.findByIdAndDelete(id);
+    console.log(deletedlisting);
+    res.redirect("/first");
+  })
+);
 
 // these are the job listings route
 
 // two indexroute
-app.get("/two",wrapAsync (async (req, res) => {
-  const ballListings = await Two.find({});
-  res.render("listing/two.index.ejs", { ballListings });
-}));
+app.get(
+  "/two",
+  wrapAsync(async (req, res) => {
+    const ballListings = await Two.find({});
+    res.render("listing/two.index.ejs", { ballListings });
+  })
+);
 
 //two  New Route
-app.get("/two/new", wrapAsync(async (req, res) => {
-  res.render("listing/two.new.ejs");
-}));
+app.get(
+  "/two/new",
+  wrapAsync(async (req, res) => {
+    res.render("listing/two.new.ejs");
+  })
+);
 
 //two  Show route
-app.get("/two/:id",wrapAsync (async (req, res) => {
-  let { id } = req.params;
-  const listing = await Two.findById(id);
-  res.render("listing/two.show.ejs", { listing });
-}));
+app.get(
+  "/two/:id",
+  wrapAsync(async (req, res) => {
+    let { id } = req.params;
+    const listing = await Two.findById(id);
+    res.render("listing/two.show.ejs", { listing });
+  })
+);
 
 //two  crate Route
-app.post("/two",wrapAsync (async (req, res) => {
-  const newListing = new Two(req.body.listing);
-  await newListing.save();
-  res.redirect("/two");
-}));
+app.post(
+  "/two",
+  wrapAsync(async (req, res) => {
+    const newListing = new Two(req.body.listing);
+    await newListing.save();
+    res.redirect("/two");
+  })
+);
 
 //two   Edit Route
 
-app.get("/two/:id/edit", wrapAsync(async (req, res) => {
-  let { id } = req.params;
-  const listing = await Two.findById(id);
-  res.render("listing/two.edit.ejs", { listing });
-}));
+app.get(
+  "/two/:id/edit",
+  wrapAsync(async (req, res) => {
+    let { id } = req.params;
+    const listing = await Two.findById(id);
+    res.render("listing/two.edit.ejs", { listing });
+  })
+);
 
 //two   Update route
-app.put("/two/:id",wrapAsync (async (req, res) => {
-  let { id } = req.params;
-  await Two.findByIdAndUpdate(id, { ...req.body.new });
-  res.redirect(`/two/${id}`);
-}));
+app.put(
+  "/two/:id",
+  wrapAsync(async (req, res) => {
+    let { id } = req.params;
+    await Two.findByIdAndUpdate(id, { ...req.body.new });
+    res.redirect(`/two/${id}`);
+  })
+);
 
 // two  Delete ROUTE
-app.delete("/two/:id",wrapAsync (async (req, res) => {
-  let { id } = req.params;
-  let deletedlisting = await Two.findByIdAndDelete(id);
-  console.log(deletedlisting);
-  res.redirect("/two");
-}));
+app.delete(
+  "/two/:id",
+  wrapAsync(async (req, res) => {
+    let { id } = req.params;
+    let deletedlisting = await Two.findByIdAndDelete(id);
+    console.log(deletedlisting);
+    res.redirect("/two");
+  })
+);
 
 //sample db store
 
@@ -162,9 +210,9 @@ app.all("*", (req, res, next) => {
 });
 
 app.use((err, req, res, next) => {
-  let { statuscode=500, message="wow" } = err;
+  let { statuscode = 500, message = "wow" } = err;
   // res.status(statuscode).send(message);
-  res.render("error.ejs",{message});
+  res.render("error.ejs", { message });
 });
 
 // PORT
@@ -173,4 +221,4 @@ app.listen(8080, () => {
 });
 
 //port is listing to 8080;
-//change 
+//change
