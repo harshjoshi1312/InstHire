@@ -213,3 +213,19 @@ body {
 .edit-btn{
   background-color: #fe424d !important; 
 }
+
+/* showpage addit */
+.show-img{
+  height: 30vh;
+}
+
+/* styling the show page */
+.btns{
+  display: flex;
+}
+
+.show-card{
+  padding-left: 0;
+  padding-right: 0;
+
+}

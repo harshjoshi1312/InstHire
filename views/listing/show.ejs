@@ -1,18 +1,38 @@
 <% layout("/layouts/boilerplate.ejs") %>
-  <body>
-    <h3>Developers Profile</h3>
+<div class="row mt-3">
+  <div class="col-8 offset-3">
     <h1>developer details</h1>
-    <ul>
-      <li><%= listing.name%></li>
-      <li><%= listing.role%></li>
-      <li><%= listing.description%></li>
-      <li><%= listing.location%></li>
-      <li><%= listing.country%></li>
-    </ul>
-    <br />
-    <a href="/first/<%= listing._id%>/edit "> Edit this listing</a>
-    <br /><br /><br /><br />
+  </div>
+  <div class="card col-6 offset-3 show-card">
+    <img
+      src="<%= listing.image %>>"
+      class="card-img-top show-img"
+      alt="listing_image"
+    />
+    <div class="card-body">
+      <p class="card=text">
+        <b><%= listing.name %></b>
+        <li><%= listing.role%></li>
+        <br />
+        <li><%= listing.description%></li>
+        <br />
+        <li><%= listing.location%></li>
+        <li><%= listing.country%></li>
+      </p>
+    </div>
+  </div>
+
+  <br />
+
+  <div class="btns">
+    <a
+      href="/first/<%= listing._id%>/edit "
+      class="btn btn-dark col-1 offset-3 edit-btn"
+    >
+      Edit</a
+    >
     <form method="post" action="/first/<%= listing._id%>?_method=delete">
-      <button>delete Your profile</button>
+      <button class="btn btn-dark offset-5">Delete</button>
     </form>
-  </body>
+  </div>
+</div>

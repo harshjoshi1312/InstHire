@@ -1,4 +1,4 @@
-<% layout("/layouts/boilerplate.ejs") %>
+<!-- <% layout("/layouts/boilerplate.ejs") %>
   <body>
     <h3>Developers Profile</h3>
     <h1>developer details</h1>
@@ -15,4 +15,42 @@
     <form method="post" action="/two/<%= listing._id%>?_method=delete">
       <button>delete Your Job profile</button>
     </form>
-  </body>
+  </body> -->
+<% layout("/layouts/boilerplate.ejs") %>
+<div class="row mt-3">
+  <div class="col-8 offset-3">
+    <h1>Jobs details</h1>
+  </div>
+  <div class="card col-6 offset-3 show-card">
+    <img
+      src="<%= listing.image %>>"
+      class="card-img-top show-img"
+      alt="listing_image"
+    />
+    <div class="card-body">
+      <p class="card=text">
+        <b><%= listing.name %></b>
+        <li><%= listing.role%></li>
+        <br />
+        <li><%= listing.description%></li>
+        <br />
+        <li><%= listing.location%></li>
+        <li><%= listing.stipend%></li>
+      </p>
+    </div>
+  </div>
+
+  <br />
+
+  <div class="btns">
+    <a
+      href="/two/<%= listing._id%>/edit "
+      class="btn btn-dark col-1 offset-3 edit-btn"
+    >
+      Edit</a
+    >
+    <form method="post" action="/two/<%= listing._id%>?_method=delete">
+      <button class="btn btn-dark offset-5">Delete</button>
+    </form>
+  </div>
+</div>
