@@ -5,8 +5,14 @@ body {
   color: #e4e4e4 !important;
   margin: 0;
   padding: 0;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
 }
 
+.container{
+  flex: 1;
+}
 /* Navbar styles */
 .navbar {
   height: 5rem;
@@ -69,6 +75,7 @@ body {
 .wow {
   color: white;
 }
+
 
 /* Card styles */
 .card {
@@ -196,4 +203,8 @@ body {
 .form-control:focus {
   border-color: #666666;
   outline: none;
+}
+/* mew page styling */
+.add-btn{
+  background-color: #fe424d !important; 
 }

@@ -1,34 +1,65 @@
 <% layout("/layouts/boilerplate.ejs") %>
-<body>
-     <h1>Enter Your developer Profile</h1>
+<div class="row">
+  <div class="col-8 offset-2">
+    <h1>List New Openings</h1>
     <form method="post" action="/two">
-      <input name="listing[name]" placeholder="name" name" type="text"
-      />
-      <br /><br />
-      <input name="listing[role]" placeholder="role"  type="text" />
-      <br /><br />
-      <input
-        name="listing[description]"
-        placeholder="description"
-        type="text"
-      />
-      <br /><br />
-      <input name="listing[image]" 
-      placeholder="image"
-      type="text" />
-      <br /><br />
-      <input
-        name="listing[location]"
-        placeholder="location"
-        type="text"
-      />
-      <br /><br />
-      <input
-        name="listing[stipend]"
-        placeholder="stipend"
-        type="text"
-      />
-      <br /><br />
-      <button>Add your Job profile</button>
+      <div class="mb-3">
+        <label for="name" class="form-label"> Enter title</label>
+        <input name="listing[name]" placeholder="name" name" type="text"
+        class="form-control" />
+      </div>
+      <div class="mb-3">
+        <label for="role" class="form-label"> Enter your Role</label>
+        <input
+          name="listing[role]"
+          placeholder="need expertice"
+          type="text"
+          class="form-control"
+        />
+      </div>
+      <div class="mb-3">
+        <label for="description" class="form-label"> write your info</label>
+        <input
+          name="listing[description]"
+          placeholder="job-description"
+          type="text"
+          class="form-control"
+        />
+      </div>
+
+      <div class="mb-3">
+        <label for="image" class="form-label"> Image Link</label>
+        <input
+          name="listing[image]"
+          placeholder="enter image URL/link"
+          type="text"
+          class="form-control"
+        />
+      </div>
+
+      <div class="mb-3">
+        <label for="location" class="form-label">
+          Enter Your prefered Location</label
+        >
+        <input
+          name="listing[location]"
+          placeholder="remote/Onsite"
+          type="text"
+          class="form-control"
+        />
+      </div>
+
+      <div class="mb-3">
+        <label for="stipend" class="form-label"> stipend expect</label>
+        <input
+          name="listing[stipend]"
+          placeholder="stipend INR"
+          type="text"
+          class="form-control"
+        />
+      </div>
+
+      <button class="btn btn-dark add-btn">Add new openings</button>
     </form>
-</body>
+  </div>
+</div>
