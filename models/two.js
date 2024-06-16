@@ -20,6 +20,7 @@ const twoSchema = new Schema({
   location: String,
   applydate: String,
   stipend: String,
+  mail: String,
 });
 
 const Two = mongoose.model("Two", twoSchema);

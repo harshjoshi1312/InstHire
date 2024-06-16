@@ -1,4 +1,4 @@
-<% layout("/layouts/boilerplate.ejs") %>
+<!-- <% layout("/layouts/boilerplate.ejs") %>
 <div class="row mt-3">
   <div class="col-8 offset-3">
     <h1>developer details</h1>
@@ -16,9 +16,13 @@
         <br />
         <li><%= listing.description%></li>
         <br />
+        <!-- <li><%= listing.portfolio%></li> -->
+        <!-- <a href="<%= listing.portfolio %>" target="_blank"
+          ><%= listing.portfolio %></a -->
+        <!-- >
         <li><%= listing.location%></li>
         <li><%= listing.country%></li>
-       <b> <li><%= listing.mail%></li></b>
+        <b> <li><%= listing.mail%></li></b>
       </p>
     </div>
   </div>
@@ -36,4 +40,322 @@
       <button class="btn btn-dark offset-5">Delete</button>
     </form>
   </div>
+</div> -->
+<!-- <% layout("/layouts/boilerplate.ejs") %>
+<div class="row mt-3">
+  <div class="col-8 offset-2">
+    <h1 class="text-center">Developer Details</h1>
+  </div>
+  <div class="card col-8 offset-2 mt-3 show-card">
+    <img
+      src="<%= listing.image %>"
+      class="card-img-top show-img"
+      alt="listing_image"
+      style="max-height: 400px; object-fit: cover;"
+    />
+    <div class="card-body">
+      <h3 class="card-title"><%= listing.name %></h3>
+      <p class="card-text">
+        <strong>Role:</strong> <%= listing.role %>
+      </p>
+      <p class="card-text">
+        <strong>Description:</strong> <%= listing.description %>
+      </p>
+      <p class="card-text">
+        <strong>Portfolio:</strong> 
+        <a href="<%= listing.portfolio %>" target="_blank" class="text-info"><%= listing.portfolio %></a>
+      </p>
+      <p class="card-text">
+        <strong>Location:</strong> <%= listing.location %>, <%= listing.country %>
+      </p>
+      <p class="card-text">
+        <strong>Email:</strong> 
+        <a href="mailto:<%= listing.mail %>" class="text-info"><%= listing.mail %></a>
+      </p>
+    </div>
+  </div>
+
+  <div class="col-8 offset-2 mt-3">
+    <div class="btn-group" role="group" aria-label="Basic example">
+      <a href="/first/<%= listing._id %>/edit" class="btn btn-dark">Edit</a>
+      <form method="post" action="/first/<%= listing._id %>?_method=delete" style="display:inline;">
+        <button type="submit" class="btn btn-dark btn-delete">Delete</button>
+      </form>
+    </div>
+  </div>
 </div>
+
+<style>
+  /* Styling the show page container */
+.container {
+  padding: 2rem;
+}
+
+/* Styling the card */
+.card {
+  margin-bottom: 2rem;
+  background-color: #1a1a1a !important;
+  color: white !important;
+  border-radius: 0.75rem;
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 10px 10px 20px #0b0b0b, -10px -10px 20px #292929;
+  background: linear-gradient(145deg, #1a1a1a, #2a2a2a);
+}
+
+.card:hover {
+  transform: scale(1.05); /* Enhanced zoom effect */
+  box-shadow: 0 0 2rem rgba(255, 255, 255, 0.7);
+  background: linear-gradient(145deg, #2a2a2a, #1a1a1a);
+}
+
+/* Styling the card image */
+.card-img-top {
+  border-radius: 0.75rem 0.75rem 0 0;
+  width: 100% !important;
+  height: 300px; /* Adjusted height for larger display */
+  object-fit: cover !important;
+  transition: opacity 0.3s ease;
+}
+
+.card:hover .card-img-top {
+  opacity: 0.8;
+}
+
+/* Styling the card body */
+.card-body {
+  padding: 1.5rem !important;
+}
+
+/* Improved typography */
+.card-title {
+  font-size: 1.5rem; /* Adjusted font-size */
+  font-weight: 700;
+  margin-bottom: 1rem;
+}
+
+.card-text {
+  line-height: 1.6;
+  font-size: 1rem; /* Adjusted font-size */
+}
+
+/* Styling the email and portfolio links */
+.card-text a {
+  color: #3498db;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.card-text a:hover {
+  color: #2980b9;
+}
+
+/* Styling the buttons */
+.btns {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 2rem;
+}
+
+.btn {
+  background-color: #fe424d !important;
+  color: white;
+  border: none;
+  border-radius: 0.5rem;
+  padding: 0.75rem 1.5rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.btn:hover {
+  background-color: #ff5a5f !important;
+  transform: scale(1.05);
+}
+
+/* Styling specific to edit button */
+.edit-btn {
+  margin-right: 1rem;
+}
+.btn-delete{
+  margin-right: 3rem;
+}
+
+/* Utility classes */
+.text-center {
+  text-align: center;
+}
+
+.mt-2 {
+  margin-top: 2rem;
+}
+
+.mb-2 {
+  margin-bottom: 2rem;
+}
+
+.pt-2 {
+  padding-top: 2rem;
+}
+
+.pb-2 {
+  padding-bottom: 2rem;
+}
+
+</style> -->
+<% layout("/layouts/boilerplate.ejs") %>
+<div class="row mt-3">
+  <div class="col-8 offset-2">
+    <h1 class="text-center">Developer Details</h1>
+  </div>
+  <div class="card col-8 offset-2 mt-3 show-card">
+    <img
+      src="<%= listing.image %>"
+      class="card-img-top show-img"
+      alt="listing_image"
+      style="max-height: 400px; object-fit: cover;"
+    />
+    <div class="card-body">
+      <h3 class="card-title"><%= listing.name %></h3>
+      <p class="card-text">
+        <strong>Role:</strong> <%= listing.role %>
+      </p>
+      <p class="card-text">
+        <strong>Description:</strong> <%= listing.description %>
+      </p>
+      <p class="card-text">
+        <strong>Portfolio:</strong> 
+        <a href="<%= listing.portfolio %>" target="_blank" class="text-info"><%= listing.portfolio %></a>
+      </p>
+      <p class="card-text">
+        <strong>Location:</strong> <%= listing.location %>, <%= listing.country %>
+      </p>
+      <p class="card-text">
+        <strong>Email:</strong> 
+        <a href="mailto:<%= listing.mail %>" class="text-info"><%= listing.mail %></a>
+      </p>
+    </div>
+  </div>
+
+  <div class="col-8 offset-2 mt-3">
+    <div class="btn-group" role="group" aria-label="Basic example">
+      <a href="/first/<%= listing._id %>/edit" class="btn btn-dark">Edit</a>
+      <form method="post" action="/first/<%= listing._id %>?_method=delete" style="display:inline;">
+        <button type="submit" class="btn btn-dark btn-delete">Delete</button>
+      </form>
+    </div>
+  </div>
+</div>
+
+<style>
+  /* Styling the show page container */
+  .container {
+    padding: 2rem;
+  }
+
+  /* Styling the card */
+  .card {
+    margin-bottom: 2rem;
+    background-color: #1a1a1a !important;
+    color: white !important;
+    border-radius: 0.75rem;
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 10px 10px 20px #0b0b0b, -10px -10px 20px #292929;
+    background: linear-gradient(145deg, #1a1a1a, #2a2a2a);
+  }
+
+  .card:hover {
+    transform: scale(1.05); /* Enhanced zoom effect */
+    box-shadow: 0 0 2rem rgba(255, 255, 255, 0.7);
+    background: linear-gradient(145deg, #2a2a2a, #1a1a1a);
+  }
+
+  /* Styling the card image */
+  .card-img-top {
+    border-radius: 0.75rem 0.75rem 0 0;
+    width: 100% !important;
+    height: 300px; /* Adjusted height for larger display */
+    object-fit: cover !important;
+    transition: opacity 0.3s ease;
+  }
+
+  .card:hover .card-img-top {
+    opacity: 0.8;
+  }
+
+  /* Styling the card body */
+  .card-body {
+    padding: 1.5rem !important;
+  }
+
+  /* Improved typography */
+  .card-title {
+    font-size: 1.5rem; /* Adjusted font-size */
+    font-weight: 700;
+    margin-bottom: 1rem;
+  }
+
+  .card-text {
+    line-height: 1.6;
+    font-size: 1rem; /* Adjusted font-size */
+  }
+
+  /* Styling the email and portfolio links */
+  .card-text a {
+    color: #3498db;
+    text-decoration: none;
+    transition: color 0.3s ease;
+  }
+
+  .card-text a:hover {
+    color: #2980b9;
+  }
+
+  /* Styling the buttons */
+  .btns {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 2rem;
+  }
+
+  .btn-group .btn {
+    background-color: #fe424d !important;
+    color: white;
+    border: none;
+    border-radius: 0.5rem;
+    padding: 0.75rem 1.5rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    margin-right: 1rem; /* Add space between buttons */
+  }
+
+  .btn-group .btn:last-child {
+    margin-right: 0;
+  }
+
+  .btn:hover {
+    background-color: #ff5a5f !important;
+    transform: scale(1.05);
+  }
+
+  /* Utility classes */
+  .text-center {
+    text-align: center;
+  }
+
+  .mt-2 {
+    margin-top: 2rem;
+  }
+
+  .mb-2 {
+    margin-bottom: 2rem;
+  }
+
+  .pt-2 {
+    padding-top: 2rem;
+  }
+
+  .pb-2 {
+    padding-bottom: 2rem;
+  }
+</style>

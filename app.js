@@ -49,6 +49,7 @@ const validatelisting = (req,res,next) =>{
     next();
    }
 }
+// this validate listing make errors in code thats why its not using write now cause joi validation not used in all strings
 
 // first indexroute
 app.get(

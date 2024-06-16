@@ -20,6 +20,7 @@ const firstSchema = new Schema({
   location: String,
   country: String,
   mail: String,
+  portfolio: String,
 });
 
 const First = mongoose.model("First", firstSchema);
