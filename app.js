@@ -8,6 +8,7 @@ const ExpressError = require("./utils/ExpressError.js");
 const listings = require("./routes/listing.js");
 const hearing = require("./routes/hearing.js");
 const session = require("express-session");
+const flash = require("connect-flash");
 // temporaty add samll db
 const MONGO_URL = "mongodb://127.0.0.1:27017/insthire";
 
@@ -48,12 +49,23 @@ const sessionOptions = {
     httpOnly: true,
   },
 };
-
-app.use(session(sessionOptions));
-
 // the main root
 app.get("/", (req, res) => {
   res.send(" i am hrzx root");
+});
+
+app.use(session(sessionOptions));
+app.use(flash());
+
+//middlewarefor flash
+// 1 make middleware
+// 2 index add <%success%>
+// 3 add things on routes whwre we want to show
+
+app.use((req, res, next) => {
+  res.locals.success = req.flash("success");
+  res.locals.error = req.flash("error");
+  next();
 });
 
 // this is router objects

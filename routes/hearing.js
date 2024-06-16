@@ -30,6 +30,10 @@ router.get(
   wrapAsync(async (req, res) => {
     let { id } = req.params;
     const listing = await Two.findById(id);
+     if (!listing) {
+       req.flash("error", "profile you requested does not exist");
+       res.redirect("/two");
+     }
     res.render("listing/two.show.ejs", { listing });
   })
 );
@@ -40,6 +44,7 @@ router.post(
   wrapAsync(async (req, res) => {
     const newListing = new Two(req.body.listing);
     await newListing.save();
+    req.flash("success", "New job Created");
     res.redirect("/two");
   })
 );
@@ -61,7 +66,9 @@ router.put(
   wrapAsync(async (req, res) => {
     let { id } = req.params;
     await Two.findByIdAndUpdate(id, { ...req.body.new });
+     req.flash("success", "job info updated");
     res.redirect(`/two/${id}`);
+   
   })
 );
 
@@ -72,7 +79,9 @@ router.delete(
     let { id } = req.params;
     let deletedlisting = await Two.findByIdAndDelete(id);
     console.log(deletedlisting);
+    req.flash("success", "job info deleted");
     res.redirect("/two");
+    
   })
 );
 

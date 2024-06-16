@@ -1,4 +1,4 @@
-<% layout("/layouts/boilerplate.ejs") %>
+<% layout("/layouts/boilerplate.ejs") %> 
 <body>
   <h1>All data of programmers</h1>
   <!-- <form method="GET" action="/first/new">
@@ -9,23 +9,21 @@
 
   <div class="row row-cols-lg-3 row-cols-md-2 row-cols-sm-1">
     <% for(let listing of allListings){ %>
-      <a href="/first/<%= listing._id%>" class="imagelink">
-    <div class="card col" style="width: 20rem">
-      <img
-        class="card-img-top"
-        src="<%= listing.image%>"
-        alt="Card image cap"
-        style="height: 20rem;"
-      />
-      <div class="card-img-overlay">
-        
+    <a href="/first/<%= listing._id%>" class="imagelink">
+      <div class="card col" style="width: 20rem">
+        <img
+          class="card-img-top"
+          src="<%= listing.image%>"
+          alt="Card image cap"
+          style="height: 20rem"
+        />
+        <div class="card-img-overlay"></div>
+        <div class="card-body">
+          <b><%= listing.name%></b>
+          <br />
+          <p class="card-text"><%= listing.description%></p>
+        </div>
       </div>
-      <div class="card-body">
-        <b><%= listing.name%></b>
-        <br />
-        <p class="card-text"><%= listing.description%></p>
-      </div>
-    </div>
     </a>
     <% } %>
   </div>

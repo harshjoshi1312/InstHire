@@ -40,6 +40,10 @@ router.get(
   wrapAsync(async (req, res) => {
     let { id } = req.params;
     const listing = await First.findById(id);
+    if (!listing) {
+      req.flash("error", "profile you requested does not exist");
+      res.redirect("/first");
+    }
     res.render("listing/show.ejs", { listing });
   })
 );
@@ -51,6 +55,7 @@ router.post(
   wrapAsync(async (req, res, next) => {
     const newListing = new First(req.body.listing);
     await newListing.save();
+    req.flash("success", "New Listing Created");
     res.redirect("/first");
   })
 );
@@ -72,6 +77,7 @@ router.put(
   wrapAsync(async (req, res) => {
     let { id } = req.params;
     await First.findByIdAndUpdate(id, { ...req.body.new });
+    req.flash("success", "your profile updated");
     res.redirect(`/first/${id}`);
   })
 );
@@ -83,6 +89,7 @@ router.delete(
     let { id } = req.params;
     let deletedlisting = await First.findByIdAndDelete(id);
     console.log(deletedlisting);
+    req.flash("success", "New Listing Deleted");
     res.redirect("/first");
   })
 );
