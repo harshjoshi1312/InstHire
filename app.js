@@ -7,6 +7,7 @@ const ejsMate = require("ejs-mate");
 const ExpressError = require("./utils/ExpressError.js");
 const listings = require("./routes/listing.js");
 const hearing = require("./routes/hearing.js");
+const session = require("express-session");
 // temporaty add samll db
 const MONGO_URL = "mongodb://127.0.0.1:27017/insthire";
 
@@ -29,35 +30,36 @@ app.use(express.urlencoded({ extended: true }));
 app.use(methodOverride("_method"));
 app.engine("ejs", ejsMate);
 app.use(express.static(path.join(__dirname, "/public")));
-// ROUTES
 
-// basicall these are the developers routes
+// session
+//session implementation
+// 1-npm session
+// 2-session require
+// 3-session object
+// 4- pass in app.use route
+
+const sessionOptions = {
+  secret: "mysupersecretcode",
+  resave: false,
+  saveUninitialized: true,
+  cookie: {
+    expires: Date.now() + 7 * 24 * 60 * 60 * 1000,
+    maxAge: 7 * 24 * 60 * 60 * 1000,
+    httpOnly: true,
+  },
+};
+
+app.use(session(sessionOptions));
+
 // the main root
 app.get("/", (req, res) => {
   res.send(" i am hrzx root");
 });
 
-// this validate listing make errors in code thats why its not using write now cause joi validation not used in all strings
-
+// this is router objects
 app.use("/first", listings);
 app.use("/two", hearing);
 
-// these are the job listings route
-
-//sample db store
-
-// app.get("/testlisting", async (req, res) => {
-//   let sampleListing = new First({
-//     name: "harsh",
-//     role: "backend",
-//     description: "hello i am harshjoshi",
-//     location: "vijapur",
-//     country: "ahmedabad",
-//   });
-//   await sampleListing.save();
-//   console.log("sample listing was saved");
-//   res.send("successfull");
-// });
 app.all("*", (req, res, next) => {
   next(new ExpressError(404, "page not found"));
 });
