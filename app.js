@@ -7,6 +7,7 @@ const ejsMate = require("ejs-mate");
 const ExpressError = require("./utils/ExpressError.js");
 const listings = require("./routes/listing.js");
 const hearing = require("./routes/hearing.js");
+const user = require("./routes/user.js");
 const session = require("express-session");
 const flash = require("connect-flash");
 const passport = require("passport");
@@ -83,18 +84,19 @@ app.use((req, res, next) => {
 });
 
 //user.register method check the data about name,pass.
-app.get("/dempouser", async (req, res) => {
-  let fakeuser = new User({
-    email: "joshiharsh1312@gmail.com",
-    username: "harsh",
-  });
-  let registereduser = await User.register(fakeuser, "helloworld");
-  res.send(registereduser);
-});
+// app.get("/dempouser", async (req, res) => {
+//   let fakeuser = new User({
+//     email: "joshiharsh1312@gmail.com",
+//     username: "harsh",
+//   });
+//   let registereduser = await User.register(fakeuser, "helloworld");
+//   res.send(registereduser);
+// });
 
 // this is router objects
 app.use("/first", listings);
 app.use("/two", hearing);
+app.use("/", user);
 
 app.all("*", (req, res, next) => {
   next(new ExpressError(404, "page not found"));
