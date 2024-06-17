@@ -6,6 +6,7 @@ const ExpressError = require("../utils/ExpressError.js");
 const { listingSchema } = require("../schema.js");
 const First = require("../models/first.js");
 const Two = require("../models/two.js");
+const { isLoggedIn } = require("../middleware.js");
 
 // two indexroute
 router.get(
@@ -19,6 +20,7 @@ router.get(
 //two  New Route
 router.get(
   "/new",
+  isLoggedIn,
   wrapAsync(async (req, res) => {
     res.render("listing/two.new.ejs");
   })
@@ -41,6 +43,7 @@ router.get(
 //two  crate Route
 router.post(
   "/",
+  isLoggedIn,
   wrapAsync(async (req, res) => {
     const newListing = new Two(req.body.listing);
     await newListing.save();
@@ -53,6 +56,7 @@ router.post(
 
 router.get(
   "/:id/edit",
+  isLoggedIn,
   wrapAsync(async (req, res) => {
     let { id } = req.params;
     const listing = await Two.findById(id);
@@ -63,25 +67,25 @@ router.get(
 //two   Update route
 router.put(
   "/:id",
+  isLoggedIn,
   wrapAsync(async (req, res) => {
     let { id } = req.params;
     await Two.findByIdAndUpdate(id, { ...req.body.new });
-     req.flash("success", "job info updated");
+    req.flash("success", "job info updated");
     res.redirect(`/two/${id}`);
-   
   })
 );
 
 // two  Delete ROUTE
 router.delete(
   "/:id",
+  isLoggedIn,
   wrapAsync(async (req, res) => {
     let { id } = req.params;
     let deletedlisting = await Two.findByIdAndDelete(id);
     console.log(deletedlisting);
     req.flash("success", "job info deleted");
     res.redirect("/two");
-    
   })
 );
 

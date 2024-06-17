@@ -6,6 +6,8 @@ const ExpressError = require("../utils/ExpressError.js");
 const { listingSchema } = require("../schema.js");
 const First = require("../models/first.js");
 const Two = require("../models/two.js");
+const passport = require("passport");
+const { isLoggedIn } = require("../middleware.js");
 
 //validation schema
 const validatelisting = (req, res, next) => {
@@ -28,7 +30,7 @@ router.get(
 
 // New Route
 router.get(
-  "/new",
+  "/new",isLoggedIn,
   wrapAsync(async (req, res) => {
     res.render("listing/new.ejs");
   })
@@ -51,6 +53,7 @@ router.get(
 //crate Route
 router.post(
   "/",
+  isLoggedIn,
   // validatelisting,
   wrapAsync(async (req, res, next) => {
     const newListing = new First(req.body.listing);
@@ -64,6 +67,7 @@ router.post(
 
 router.get(
   "/:id/edit",
+  isLoggedIn,
   wrapAsync(async (req, res) => {
     let { id } = req.params;
     const listing = await First.findById(id);
@@ -74,6 +78,7 @@ router.get(
 // Update route
 router.put(
   "/:id",
+  isLoggedIn,
   wrapAsync(async (req, res) => {
     let { id } = req.params;
     await First.findByIdAndUpdate(id, { ...req.body.new });
@@ -85,6 +90,7 @@ router.put(
 // Delete ROUTE
 router.delete(
   "/:id",
+  isLoggedIn,
   wrapAsync(async (req, res) => {
     let { id } = req.params;
     let deletedlisting = await First.findByIdAndDelete(id);
