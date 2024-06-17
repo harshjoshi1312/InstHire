@@ -9,6 +9,11 @@ const listings = require("./routes/listing.js");
 const hearing = require("./routes/hearing.js");
 const session = require("express-session");
 const flash = require("connect-flash");
+const passport = require("passport");
+const LocalStrategy = require("passport-local");
+const LocalStategy = require("passport-local");
+const User = require("./models/user.js");
+
 // temporaty add samll db
 const MONGO_URL = "mongodb://127.0.0.1:27017/insthire";
 
@@ -57,6 +62,15 @@ app.get("/", (req, res) => {
 app.use(session(sessionOptions));
 app.use(flash());
 
+// for the passport steps
+
+app.use(passport.initialize());
+app.use(passport.session());
+passport.use(new LocalStategy(User.authenticate()));
+
+passport.serializeUser(User.serializeUser());
+passport.deserializeUser(User.deserializeUser());
+
 //middlewarefor flash
 // 1 make middleware
 // 2 index add <%success%>
@@ -66,6 +80,16 @@ app.use((req, res, next) => {
   res.locals.success = req.flash("success");
   res.locals.error = req.flash("error");
   next();
+});
+
+//user.register method check the data about name,pass.
+app.get("/dempouser", async (req, res) => {
+  let fakeuser = new User({
+    email: "joshiharsh1312@gmail.com",
+    username: "harsh",
+  });
+  let registereduser = await User.register(fakeuser, "helloworld");
+  res.send(registereduser);
 });
 
 // this is router objects
