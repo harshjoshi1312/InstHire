@@ -21,6 +21,10 @@ const twoSchema = new Schema({
   applydate: String,
   stipend: String,
   mail: String,
+   owner: {
+    type: Schema.Types.ObjectId,
+    ref: "User",
+  },
 });
 
 const Two = mongoose.model("Two", twoSchema);

@@ -41,7 +41,7 @@ router.get(
   "/:id",
   wrapAsync(async (req, res) => {
     let { id } = req.params;
-    const listing = await First.findById(id);
+    const listing = await First.findById(id).populate("ownner")
     if (!listing) {
       req.flash("error", "profile you requested does not exist");
       res.redirect("/first");

@@ -9,7 +9,7 @@ main()
     console.log("connected to db");
   })
   .catch((err) => {
-    console.log("err");   
+    console.log("err");
   });
 
 async function main() {
@@ -18,6 +18,10 @@ async function main() {
 
 const initDB = async () => {
   await Two.deleteMany({});
+  initData.data = initData.data.map((obj) => ({
+    ...obj,
+    owner: "6670610a6a156eb66d7bfd57",
+  }));
   await Two.insertMany(initData.data);
   console.log("data was initialized in two ");
 };

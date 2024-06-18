@@ -21,9 +21,12 @@ const firstSchema = new Schema({
   country: String,
   mail: String,
   portfolio: String,
+  owner: {
+    type: Schema.Types.ObjectId,
+    ref: "User",
+  },
 });
 
+firstSchema.set("strictPopulate", false);
 const First = mongoose.model("First", firstSchema);
 module.exports = First;
-
-
