@@ -21,7 +21,7 @@ const twoSchema = new Schema({
   applydate: String,
   stipend: String,
   mail: String,
-   owner: {
+  owner: {
     type: Schema.Types.ObjectId,
     ref: "User",
   },

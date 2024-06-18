@@ -6,7 +6,7 @@ const ExpressError = require("../utils/ExpressError.js");
 const { listingSchema } = require("../schema.js");
 const First = require("../models/first.js");
 const Two = require("../models/two.js");
-const { isLoggedIn } = require("../middleware.js");
+const { isLoggedIn, isOwned } = require("../middleware.js");
 
 // two indexroute
 router.get(
@@ -31,11 +31,12 @@ router.get(
   "/:id",
   wrapAsync(async (req, res) => {
     let { id } = req.params;
-    const listing = await Two.findById(id);
-     if (!listing) {
-       req.flash("error", "profile you requested does not exist");
-       res.redirect("/two");
-     }
+    const listing = await Two.findById(id).populate("owner");
+    if (!listing) {
+      req.flash("error", "profile you requested does not exist");
+      res.redirect("/two");
+    }
+    console.log(listing);
     res.render("listing/two.show.ejs", { listing });
   })
 );
@@ -46,6 +47,8 @@ router.post(
   isLoggedIn,
   wrapAsync(async (req, res) => {
     const newListing = new Two(req.body.listing);
+    console.log(req.user);
+    newListing.owner = req.user._id;
     await newListing.save();
     req.flash("success", "New job Created");
     res.redirect("/two");
@@ -57,6 +60,7 @@ router.post(
 router.get(
   "/:id/edit",
   isLoggedIn,
+  isOwned,
   wrapAsync(async (req, res) => {
     let { id } = req.params;
     const listing = await Two.findById(id);
@@ -68,6 +72,7 @@ router.get(
 router.put(
   "/:id",
   isLoggedIn,
+  isOwned,
   wrapAsync(async (req, res) => {
     let { id } = req.params;
     await Two.findByIdAndUpdate(id, { ...req.body.new });
@@ -80,6 +85,7 @@ router.put(
 router.delete(
   "/:id",
   isLoggedIn,
+  isOwned,
   wrapAsync(async (req, res) => {
     let { id } = req.params;
     let deletedlisting = await Two.findByIdAndDelete(id);

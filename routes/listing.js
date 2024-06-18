@@ -7,7 +7,7 @@ const { listingSchema } = require("../schema.js");
 const First = require("../models/first.js");
 const Two = require("../models/two.js");
 const passport = require("passport");
-const { isLoggedIn } = require("../middleware.js");
+const { isLoggedIn, isOwner } = require("../middleware.js");
 
 //validation schema
 const validatelisting = (req, res, next) => {
@@ -30,7 +30,8 @@ router.get(
 
 // New Route
 router.get(
-  "/new",isLoggedIn,
+  "/new",
+  isLoggedIn,
   wrapAsync(async (req, res) => {
     res.render("listing/new.ejs");
   })
@@ -41,11 +42,12 @@ router.get(
   "/:id",
   wrapAsync(async (req, res) => {
     let { id } = req.params;
-    const listing = await First.findById(id).populate("ownner")
+    const listing = await First.findById(id).populate("owner");
     if (!listing) {
       req.flash("error", "profile you requested does not exist");
       res.redirect("/first");
     }
+    console.log(listing);
     res.render("listing/show.ejs", { listing });
   })
 );
@@ -57,6 +59,8 @@ router.post(
   // validatelisting,
   wrapAsync(async (req, res, next) => {
     const newListing = new First(req.body.listing);
+    console.log(req.user);
+    newListing.owner = req.user._id;
     await newListing.save();
     req.flash("success", "New Listing Created");
     res.redirect("/first");
@@ -68,6 +72,7 @@ router.post(
 router.get(
   "/:id/edit",
   isLoggedIn,
+  isOwner,
   wrapAsync(async (req, res) => {
     let { id } = req.params;
     const listing = await First.findById(id);
@@ -79,6 +84,7 @@ router.get(
 router.put(
   "/:id",
   isLoggedIn,
+  isOwner,
   wrapAsync(async (req, res) => {
     let { id } = req.params;
     await First.findByIdAndUpdate(id, { ...req.body.new });
@@ -91,6 +97,7 @@ router.put(
 router.delete(
   "/:id",
   isLoggedIn,
+  isOwner,
   wrapAsync(async (req, res) => {
     let { id } = req.params;
     let deletedlisting = await First.findByIdAndDelete(id);

@@ -55,6 +55,7 @@
     />
     <div class="card-body">
       <h3 class="card-title"><%= listing.name %></h3>
+      <i>owned by= <%= listing.owner.username %></i>
       <p class="card-text"><strong>Role:</strong> <%= listing.role %></p>
       <p class="card-text">
         <strong>Description:</strong> <%= listing.description %>
@@ -78,6 +79,7 @@
     </div>
   </div>
 
+  <% if(currUser && currUser._id.equals(listing.owner._id)) { %>
   <div class="col-8 offset-2 mt-3">
     <div class="btn-group" role="group" aria-label="Basic example">
       <a href="/first/<%= listing._id %>/edit" class="btn btn-dark">Edit</a>
@@ -91,6 +93,7 @@
     </div>
   </div>
 </div>
+<% } %>
 
 <style>
   /* Styling the show page container */
