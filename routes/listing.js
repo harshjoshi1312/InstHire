@@ -9,6 +9,9 @@ const Two = require("../models/two.js");
 const passport = require("passport");
 const { isLoggedIn, isOwner } = require("../middleware.js");
 const ListingController = require("../controlers/listing.js");
+const multer = require("multer");
+const { storage } = require("../cloudConfig.js");
+const upload = multer({ storage });
 
 //validation schema
 const validatelisting = (req, res, next) => {
@@ -20,12 +23,14 @@ const validatelisting = (req, res, next) => {
   }
 };
 
-router.route("/").get(wrapAsync(ListingController.index)).post(
+router.route("/")
+.get(wrapAsync(ListingController.index))
+.post(
   isLoggedIn,
+  upload.single("listing[image]"),
   // validatelisting,
   wrapAsync(ListingController.createRoute)
 );
-
 // New Route
 router.get("/new", isLoggedIn, wrapAsync(ListingController.newRoute));
 

@@ -18,9 +18,12 @@ module.exports.showRoute = async (req, res) => {
   res.render("listing/two.show.ejs", { listing });
 };
 module.exports.createRoute = async (req, res) => {
+  let url = req.file.path;
+  let filename = req.file.filename;
+
   const newListing = new Two(req.body.listing);
-  console.log(req.user);
   newListing.owner = req.user._id;
+  newListing.image = { url, filename };
   await newListing.save();
   req.flash("success", "New job Created");
   res.redirect("/two");

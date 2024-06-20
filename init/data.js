@@ -6,158 +6,138 @@ const SampleListing = [
       "Experienced software engineer specializing in web development with a passion for creating efficient and scalable solutions.",
     location: "San Francisco",
     country: "United States",
-    image:
-      "https://images.unsplash.com/photo-1513258496099-48168024aec0?q=80&w=1000&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    image: {
+      url: "https://res.cloudinary.com/dakw2la8n/image/upload/v1718861484/wow_DEV/t3i6qrbm2ioib3aueokr.jpg",
+      filename: "wow_DEV/t3i6qrbm2ioib3aueokr",
+    },
+    mail: "john.doe@example.com",
+    portfolio: "johnportfolio.com",
   },
   {
-    name: "Alice Smith",
-    role: "Marketing Manager",
+    name: "Jane Smith",
+    role: "Frontend Developer",
     description:
-      "Creative marketing professional with a background in brand management and digital marketing strategies.",
-    location: "London",
-    country: "United Kingdom",
-    image:
-      "https://images.unsplash.com/photo-1513258496099-48168024aec0?q=80&w=1000&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-  },
-  {
-    name: "Mohammed Ahmed",
-    role: "Data Scientist",
-    description:
-      "Analytical thinker with expertise in machine learning algorithms and data visualization techniques.",
-    location: "Dubai",
-    country: "United Arab Emirates",
-    image:
-      "https://images.unsplash.com/photo-1513258496099-48168024aec0?q=80&w=1000&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-  },
-  {
-    name: "Sophie Martin",
-    role: "Graphic Designer",
-    description:
-      "Talented graphic designer with a flair for visual storytelling and branding design.",
-    location: "Sydney",
-    country: "Australia",
-    image:
-      "https://images.unsplash.com/photo-1513258496099-48168024aec0?q=80&w=1000&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-  },
-  {
-    name: "Luca Rossi",
-    role: "Product Manager",
-    description:
-      "Innovative product manager skilled in product development lifecycle and market analysis.",
-    location: "Milan",
-    country: "Italy",
-    image:
-      "https://images.unsplash.com/photo-1513258496099-48168024aec0?q=80&w=1000&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-  },
-  {
-    name: "Emily Johnson",
-    role: "Financial Analyst",
-    description:
-      "Detail-oriented financial analyst with expertise in financial modeling and risk management.",
+      "Frontend developer with a keen eye for design and user experience.",
     location: "New York",
     country: "United States",
-    image:
-      "https://images.unsplash.com/photo-1513258496099-48168024aec0?q=80&w=1000&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    image: {
+      url: "https://res.cloudinary.com/dakw2la8n/image/upload/v1718861484/wow_DEV/t3i6qrbm2ioib3aueokr.jpg",
+      filename: "wow_DEV/t3i6qrbm2ioib3aueokr",
+    },
+    mail: "jane.smith@example.com",
+    portfolio: "janesmithportfolio.com",
   },
   {
-    name: "Maximilian Fischer",
-    role: "UX/UI Designer",
+    name: "James Brown",
+    role: "Backend Developer",
     description:
-      "Passionate UX/UI designer focused on creating intuitive and user-friendly digital experiences.",
-    location: "Berlin",
-    country: "Germany",
-    image:
-      "https://images.unsplash.com/photo-1513258496099-48168024aec0?q=80&w=1000&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      "Versatile developer with a focus on backend systems and API development.",
+    location: "Austin",
+    country: "United States",
+    image: {
+      url: "https://res.cloudinary.com/dakw2la8n/image/upload/v1718861484/wow_DEV/t3i6qrbm2ioib3aueokr.jpg",
+      filename: "wow_DEV/t3i6qrbm2ioib3aueokr",
+    },
+    mail: "james.brown@example.com",
+    portfolio: "jamesbrown.dev",
   },
   {
-    name: "Olivia Brown",
-    role: "HR Manager",
+    name: "Emily Davis",
+    role: "Full Stack Developer",
     description:
-      "Experienced HR manager with a proven track record in recruitment and employee relations.",
-    location: "Toronto",
-    country: "Canada",
-    image:
-      "https://images.unsplash.com/photo-1513258496099-48168024aec0?q=80&w=1000&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      "Expert in full stack development with a strong background in various technologies.",
+    location: "Seattle",
+    country: "United States",
+    image: {
+      url: "https://res.cloudinary.com/dakw2la8n/image/upload/v1718861484/wow_DEV/t3i6qrbm2ioib3aueokr.jpg",
+      filename: "wow_DEV/t3i6qrbm2ioib3aueokr",
+    },
+    mail: "emily.davis@example.com",
+    portfolio: "emilydavisportfolio.com",
   },
   {
-    name: "Mateo Hernandez",
-    role: "Sales Representative",
+    name: "Michael Johnson",
+    role: "DevOps Engineer",
     description:
-      "Dynamic sales representative with exceptional communication skills and a results-driven mindset.",
-    location: "Madrid",
-    country: "Spain",
-    image:
-      "https://images.unsplash.com/photo-1513258496099-48168024aec0?q=80&w=1000&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      "Proficient in cloud infrastructure and DevOps practices, ensuring reliable and scalable deployments.",
+    location: "Chicago",
+    country: "United States",
+    image: {
+      url: "https://res.cloudinary.com/dakw2la8n/image/upload/v1718861484/wow_DEV/t3i6qrbm2ioib3aueokr.jpg",
+      filename: "wow_DEV/t3i6qrbm2ioib3aueokr",
+    },
+    mail: "michael.johnson@example.com",
+    portfolio: "michaeljohnson.dev",
   },
   {
-    name: "Isabella Martinez",
-    role: "Content Writer",
+    name: "Sarah Lee",
+    role: "Mobile Developer",
     description:
-      "Creative and versatile content writer with a passion for storytelling and SEO optimization.",
-    location: "Mexico City",
-    country: "Mexico",
-    image:
-      "https://images.unsplash.com/photo-1513258496099-48168024aec0?q=80&w=1000&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-  },
-  {
-    name: "Ethan Taylor",
-    role: "Project Manager",
-    description:
-      "Strategic project manager with a strong background in leading cross-functional teams and delivering projects on time and within budget.",
+      "Specialist in mobile app development, creating user-friendly and performance-focused applications.",
     location: "Los Angeles",
     country: "United States",
-    image:
-      "https://images.unsplash.com/photo-1513258496099-48168024aec0?q=80&w=1000&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    image: {
+      url: "https://res.cloudinary.com/dakw2la8n/image/upload/v1718861484/wow_DEV/t3i6qrbm2ioib3aueokr.jpg",
+      filename: "wow_DEV/t3i6qrbm2ioib3aueokr",
+    },
+    mail: "sarah.lee@example.com",
+    portfolio: "sarahlee.dev",
   },
   {
-    name: "Ava Wilson",
-    role: "Social Media Manager",
+    name: "David Martinez",
+    role: "Data Scientist",
     description:
-      "Social media expert with experience in developing and executing effective social media campaigns across various platforms.",
-    location: "Paris",
-    country: "France",
-    image:
-      "https://images.unsplash.com/photo-1513258496099-48168024aec0?q=80&w=1000&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      "Data scientist with a passion for turning data into actionable insights.",
+    location: "San Diego",
+    country: "United States",
+    image: {
+      url: "https://res.cloudinary.com/dakw2la8n/image/upload/v1718861484/wow_DEV/t3i6qrbm2ioib3aueokr.jpg",
+      filename: "wow_DEV/t3i6qrbm2ioib3aueokr",
+    },
+    mail: "david.martinez@example.com",
+    portfolio: "davidmartinez.dev",
   },
   {
-    name: "Liam Murphy",
-    role: "Customer Support Specialist",
+    name: "Emma Wilson",
+    role: "Machine Learning Engineer",
     description:
-      "Dedicated customer support specialist committed to providing excellent service and resolving customer inquiries efficiently.",
-    location: "Dublin",
-    country: "Ireland",
-    image:
-      "https://images.unsplash.com/photo-1513258496099-48168024aec0?q=80&w=1000&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      "Machine learning engineer with experience in building predictive models and data pipelines.",
+    location: "Denver",
+    country: "United States",
+    image: {
+      url: "https://res.cloudinary.com/dakw2la8n/image/upload/v1718861484/wow_DEV/t3i6qrbm2ioib3aueokr.jpg",
+      filename: "wow_DEV/t3i6qrbm2ioib3aueokr",
+    },
+    mail: "emma.wilson@example.com",
+    portfolio: "emmawilson.dev",
   },
   {
-    name: "Emma Clark",
-    role: "Product Designer",
+    name: "Chris Johnson",
+    role: "System Architect",
     description:
-      "Innovative product designer with a focus on creating aesthetically pleasing and functional products.",
-    location: "Stockholm",
-    country: "Sweden",
-    image:
-      "https://images.unsplash.com/photo-1513258496099-48168024aec0?q=80&w=1000&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      "Experienced in designing scalable and efficient system architectures.",
+    location: "Houston",
+    country: "United States",
+    image: {
+      url: "https://res.cloudinary.com/dakw2la8n/image/upload/v1718861484/wow_DEV/t3i6qrbm2ioib3aueokr.jpg",
+      filename: "wow_DEV/t3i6qrbm2ioib3aueokr",
+    },
+    mail: "chris.johnson@example.com",
+    portfolio: "chrisjohnson.dev",
   },
   {
-    name: "Noah Anderson",
-    role: "Business Analyst",
+    name: "Olivia Taylor",
+    role: "Web Developer",
     description:
-      "Analytical business analyst with expertise in market research and financial analysis.",
-    location: "Singapore",
-    country: "Singapore",
-    image:
-      "https://images.unsplash.com/photo-1513258496099-48168024aec0?q=80&w=1000&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-  },
-  {
-    name: "Mia Garcia",
-    role: "UX Researcher",
-    description:
-      "User experience researcher with a passion for understanding user behavior and improving product usability.",
-    location: "São Paulo",
-    country: "Brazil",
-    image:
-      "https://images.unsplash.com/photo-1513258496099-48168024aec0?q=80&w=1000&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      "Experienced web developer with a strong focus on front-end and user experience.",
+    location: "Miami",
+    country: "United States",
+    image: {
+      url: "https://res.cloudinary.com/dakw2la8n/image/upload/v1718861484/wow_DEV/t3i6qrbm2ioib3aueokr.jpg",
+      filename: "wow_DEV/t3i6qrbm2ioib3aueokr",
+    },
+    mail: "olivia.taylor@example.com",
+    portfolio: "oliviataylor.dev",
   },
 ];
 

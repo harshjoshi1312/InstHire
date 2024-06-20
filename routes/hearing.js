@@ -9,11 +9,22 @@ const Two = require("../models/two.js");
 const { isLoggedIn, isOwned } = require("../middleware.js");
 
 const HearingController = require("../controlers/hearing.js");
+const multer = require("multer");
+const { storage } = require("../cloudConfig.js");
+const upload = multer({ storage });
 
 router
   .route("/")
   .get(wrapAsync(HearingController.index))
-  .post(isLoggedIn, wrapAsync(HearingController.createRoute));
+  .post(
+    isLoggedIn,
+    upload.single("listing[image]"),
+    wrapAsync(HearingController.createRoute)
+  );
+
+// .post(upload.single("listing[image]"), (req, res) => {
+//   res.send(req.file);
+// });
 
 //two  New Route
 router.get("/new", isLoggedIn, wrapAsync(HearingController.newRoute));

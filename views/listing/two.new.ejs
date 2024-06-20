@@ -2,7 +2,13 @@
 <div class="row">
   <div class="col-8 offset-2">
     <h1>List New Openings</h1>
-    <form method="post" action="/two" novalidate class="needs-validation">
+    <form
+      method="post"
+      action="/two"
+      novalidate
+      class="needs-validation"
+      enctype="multipart/form-data"
+    >
       <div class="mb-3">
         <label for="name" class="form-label"> Enter title</label>
         <input name="listing[name]" placeholder="name" name" type="text"
@@ -32,7 +38,7 @@
         <div class="invalid-feedback">Please Enter job description</div>
       </div>
 
-      <div class="mb-3">
+      <!-- <div class="mb-3">
         <label for="image" class="form-label"> Image Link</label>
         <input
           name="listing[image]"
@@ -40,6 +46,11 @@
           type="text"
           class="form-control"
         />
+        <div class="invalid-feedback">Please Enter ImageLink</div>
+      </div> -->
+      <div class="mb-3">
+        <label for="image" class="form-label"> Upload Image</label>
+        <input name="listing[image]" type="file" class="form-control" />
         <div class="invalid-feedback">Please Enter ImageLink</div>
       </div>
 
