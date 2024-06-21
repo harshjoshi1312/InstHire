@@ -8,10 +8,13 @@ body {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
+  font-display: swap;  /* Optimize font loading */
 }
 
 .container {
   flex: 1;
+  padding: 2rem;
+  animation: fadeIn 0.5s ease-in-out;  /* Fade-in animation */
 }
 
 /* Navbar Styles */
@@ -25,6 +28,7 @@ body {
   padding: 0 2rem;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);  /* Stronger shadow for depth */
   transition: background-color 0.3s ease;  /* Smooth background transition */
+  animation: fadeIn 0.5s ease-in-out;  /* Fade-in animation */
 }
 
 .navbar:hover {
@@ -58,6 +62,7 @@ body {
   background-color: #131313;  /* Same as navbar for consistency */
   color: #e4e4e4;  /* Light gray text */
   padding: 1rem 0;
+  animation: fadeIn 0.5s ease-in-out;  /* Fade-in animation */
 }
 
 .f-info-links, .f-info-socials {
@@ -95,6 +100,7 @@ body {
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   background: linear-gradient(145deg, #1a1a1a, #2a2a2a);  /* Gradient background */
   box-shadow: 10px 10px 20px #0b0b0b, -10px -10px 20px #292929;  /* Subtle 3D effect */
+  animation: fadeIn 0.5s ease-in-out;  /* Fade-in animation */
 }
 
 .card:hover {
@@ -146,10 +152,6 @@ body {
 }
 
 /* Utility Classes */
-.container {
-  padding: 2rem;
-}
-
 .text-center {
   text-align: center;
 }
@@ -186,6 +188,10 @@ body {
   transform: scale(1.05);
 }
 
+.button:focus {
+  outline: 2px solid #fe424d;  /* Focus outline for accessibility */
+}
+
 /* Form Styles */
 .form-control {
   background-color: #2a2a2a;  /* Dark background for inputs */
@@ -200,6 +206,7 @@ body {
 .form-control:focus {
   border-color: #666666;
   outline: none;
+  outline: 2px solid #fe424d;  /* Focus outline for accessibility */
 }
 
 /* New Page Styling */
@@ -214,6 +221,10 @@ body {
   transform: scale(1.05);  /* Slight zoom on hover */
 }
 
+.add-btn:focus {
+  outline: 2px solid #fe424d;  /* Focus outline for accessibility */
+}
+
 /* Edit Page Styling */
 .edit-btn {
   background-color: #fe424d !important;  /* Bright red for edit action */
@@ -224,6 +235,10 @@ body {
 .edit-btn:hover {
   background-color: #ff5b66;  /* Lighter red on hover */
   transform: scale(1.05);  /* Slight zoom on hover */
+}
+
+.edit-btn:focus {
+  outline: 2px solid #fe424d;  /* Focus outline for accessibility */
 }
 
 /* Show Page Additions */
@@ -251,28 +266,15 @@ body {
   border-radius: 1rem;  /* Rounded corners */
   box-shadow: 10px 10px 20px #0b0b0b, -10px -10px 20px #292929;  /* Subtle 3D effect */
   transition: transform 0.3s ease, box-shadow 0.3s ease;
+  animation: fadeIn 0.5s ease-in-out;  /* Fade-in animation */
 }
 
-.show-card:hover {
-  transform: scale(1.05);  /* Slight zoom on hover */
-  box-shadow: 0 0 1rem rgba(255, 255, 255, 0.5);
+/* Animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
-
-/* Additional UI Enhancements */
-/* Navbar Icon Specific Styles */
-.navbar .icon {
-  color: #e4e4e4;  /* Default icon color */
-  font-size: 1.5rem;  /* Larger icon size */
-  transition: color 0.3s ease;
-}
-
-.navbar .icon:first-child {
-  color: white;  /* White color for the first icon */
-}
-
-/* Modern Scrollbar */
-body::-webkit-scrollbar {
-  width: 10px;
-}
-
-body::-webkit-scrollbar

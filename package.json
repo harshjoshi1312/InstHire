@@ -1,4 +1,7 @@
 {
+  "engines": {
+    "node": "20.7.0"
+  },
   "name": "hire",
   "version": "1.0.0",
   "description": "��#\u0000 \u0000I\u0000n\u0000s\u0000t\u0000H\u0000i\u0000r\u0000e\u0000\r\u0000 \u0000",
@@ -12,6 +15,7 @@
   "dependencies": {
     "cloudinary": "^1.21.0",
     "connect-flash": "^0.1.1",
+    "connect-mongo": "^5.1.0",
     "dotenv": "^16.4.5",
     "ejs": "^3.1.10",
     "ejs-mate": "^4.0.0",

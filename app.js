@@ -1,7 +1,7 @@
-if(process.env.NODE_ENV != "production"){
-require("dotenv").config();
+if (process.env.NODE_ENV != "production") {
+  require("dotenv").config();
 }
-
+require("dotenv").config();
 
 const express = require("express");
 const app = express();
@@ -14,6 +14,7 @@ const listings = require("./routes/listing.js");
 const hearing = require("./routes/hearing.js");
 const user = require("./routes/user.js");
 const session = require("express-session");
+const MongoStore = require("connect-mongo");
 const flash = require("connect-flash");
 const passport = require("passport");
 const LocalStrategy = require("passport-local");
@@ -21,7 +22,7 @@ const LocalStategy = require("passport-local");
 const User = require("./models/user.js");
 
 // temporaty add samll db
-const MONGO_URL = "mongodb://127.0.0.1:27017/insthire";
+const MONGO_URL = process.env.MONGODB_URL;
 
 main()
   .then(() => {
@@ -49,9 +50,21 @@ app.use(express.static(path.join(__dirname, "/public")));
 // 2-session require
 // 3-session object
 // 4- pass in app.use route
+const store = MongoStore.create({
+  mongoUrl: MONGO_URL,
+  crypto: {
+    secret: process.env.SECRERT,
+  },
+  touchAfter: 24 * 3600,
+});
+
+store.on("error", () => {
+  console.log("Error in MONGO SESSION STORE", err);
+});
 
 const sessionOptions = {
-  secret: "mysupersecretcode",
+  store,
+  secret: process.env.SECRERT,
   resave: false,
   saveUninitialized: true,
   cookie: {
