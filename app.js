@@ -7,7 +7,6 @@ const express = require("express");
 const app = express();
 const mongoose = require("mongoose");
 const path = require("path");
-const methodOverride = require("method-Override");
 const ejsMate = require("ejs-mate");
 const ExpressError = require("./utils/ExpressError.js");
 const listings = require("./routes/listing.js");
@@ -20,6 +19,7 @@ const passport = require("passport");
 const LocalStrategy = require("passport-local");
 const LocalStategy = require("passport-local");
 const User = require("./models/user.js");
+const methodOverride = require("method-override");
 
 // temporaty add samll db
 const MONGO_URL = process.env.MONGODB_URL;
